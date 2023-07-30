@@ -4,11 +4,14 @@ export default {
   path: '/attendances',
   name: 'attendances', // 做权限的时候会用到
   component: Layout,
-  children: [{
-    path: '',
-    component: () => import('@/views/attendances'),
-    meta: {
-      title: '考勤管理'
+  children: [
+    {
+      path: '',
+      component: () => import('@/views/attendances'),
+      meta: {
+        title: '考勤管理',
+        icon: 'skill'
+      }
     }
-  }]
+  ]
 }

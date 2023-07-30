@@ -4,11 +4,14 @@ export default {
   path: '/departments',
   name: 'departments', // 做权限的时候会用到
   component: Layout,
-  children: [{
-    path: '',
-    component: () => import('@/views/departments'),
-    meta: {
-      title: '组织架构'
+  children: [
+    {
+      path: '',
+      component: () => import('@/views/departments'),
+      meta: {
+        title: '组织架构',
+        icon: 'tree'
+      }
     }
-  }]
+  ]
 }

@@ -7,6 +7,7 @@ import departments from './modules/departments'
 import permission from './modules/permission'
 import salarys from './modules/salarys'
 import social from './modules/social'
+import setting from './modules/setting'
 
 Vue.use(Router)
 
@@ -28,32 +29,27 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: '首页', icon: 'dashboard' }
-    }]
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/dashboard/index'),
+        meta: { title: '首页', icon: 'dashboard' }
+      }
+    ]
   },
 
   { path: '*', redirect: '/404', hidden: true }
 ]
 // 动态路由
-export const asyncRoutes = [
-  employees,
-  approvals,
-  attendances,
-  departments,
-  permission,
-  salarys,
-  social
-]
+export const asyncRoutes = [employees, approvals, attendances, departments, permission, salarys, social, setting]
 
-const createRouter = () => new Router({
-  // mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  routes: [...constantRoutes, ...asyncRoutes]
-})
+const createRouter = () =>
+  new Router({
+    // mode: 'history', // require service support
+    scrollBehavior: () => ({ y: 0 }),
+    routes: [...constantRoutes, ...asyncRoutes]
+  })
 
 const router = createRouter()
 

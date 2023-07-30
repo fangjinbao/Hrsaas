@@ -4,11 +4,14 @@ export default {
   path: '/setting',
   name: 'setting', // 做权限的时候会用到
   component: Layout,
-  children: [{
-    path: '',
-    component: () => import('@/views/setting'),
-    meta: {
-      title: '公司设置'
+  children: [
+    {
+      path: '',
+      component: () => import('@/views/setting'),
+      meta: {
+        title: '公司设置',
+        icon: 'setting'
+      }
     }
-  }]
+  ]
 }

@@ -67,7 +67,7 @@ export default {
       loading: false,
       loginForm: {
         mobile: '13800000002',
-        password: '888itcast.CN764%...'
+        password: 'hm#qd@23!'
       },
       loginRules: {
         mobile: [
@@ -78,8 +78,8 @@ export default {
           { required: true, message: '请输入密码', trigger: 'change' },
           {
             min: 6,
-            max: 25,
-            message: '长度在 6 到 25 个字符',
+            max: 16,
+            message: '长度在 6 到 16 个字符',
             trigger: 'change'
           }
         ]
@@ -178,13 +178,16 @@ export default {
                 top: 12px;
                 z-index: 1;
                 color: rgba(166, 166, 166, 1);
-                .svg-icon {
+               .svg-icon {
                   width: 18px;
                   height: 18px;
+                  color: red;
+
                 }
-                .me {
+                 .me {
                   width: 20px;
                   height: 20px;
+
                 }
               }
               .el-input__inner {

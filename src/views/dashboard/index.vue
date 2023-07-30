@@ -1,12 +1,17 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">name: {{ name }}</div>
+    <PageTools :show-before="true">
+      <template v-slot:before>
+        <span>我想你了</span>
+      </template>
+      <el-button slot="after" type="primary">导入</el-button>
+    </PageTools>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-
 export default {
   name: 'Dashboard',
   computed: {
