@@ -2,7 +2,7 @@
 import Layout from '@/layout'
 export default {
   path: '/permission',
-  name: 'permission', // 做权限的时候会用到
+  name: 'permissions', // 做权限的时候会用到
   component: Layout,
   children: [
     {

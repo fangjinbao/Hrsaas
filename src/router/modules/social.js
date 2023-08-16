@@ -2,7 +2,7 @@
 import Layout from '@/layout'
 export default {
   path: '/social',
-  name: 'social', // 做权限的时候会用到
+  name: 'social_securitys', // 做权限的时候会用到
   component: Layout,
   children: [
     {

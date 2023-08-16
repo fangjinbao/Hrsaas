@@ -14,11 +14,16 @@ router.beforeEach(async(to, from, next) => {
     if (to.path === '/login') {
       next('/')
     } else {
-      // if (!store.state.user.userInfo.userId) {
-      //   await store.dispatch('user/getUserInfo')
-      // }
-      if (!store.state.user.userInfo.userId) await store.dispatch('user/getUserInfo')
-      next()
+      if (!store.state.user.userInfo.userId) {
+        await store.dispatch('user/getUserInfo')
+        // 筛选用户可用路由
+        const routes = await store.dispatch('permission/filterRoutes', store.state.user.userInfo.roles.menus)
+        // console.log(routes)
+        router.addRoutes([...routes, { path: '*', redirect: '/404', hidden: true }])
+        next(to.path) // 跳到对应地址 多做一步跳转
+      } else {
+        next()
+      }
     }
   } else {
     if (whiteList.indexOf(to.path) > -1) {

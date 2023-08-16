@@ -1,11 +1,11 @@
 import axios from 'axios'
 import store from '@/store'
-import router from '@/router'
+// import router from '@/router'
 import { Message } from 'element-ui'
 import { getTimeStamp } from '@/utils/auth'
 
 // token有效期
-const TimeOue = 7200
+const TimeOue = 10000
 function checkTimeOue() {
   return Date.now() - getTimeStamp() > TimeOue
 }
@@ -22,9 +22,9 @@ service.interceptors.request.use(
     // 在发送请求之前注入token
     if (store.getters.token) {
       if (checkTimeOue()) {
-        store.dispatch('user/logout')
-        router.push('/login')
-        return Promise.reject(new Error('token超时了'))
+        // store.dispatch('user/logout')
+        // router.push('/login')
+        // return Promise.reject(new Error('token超时了'))
       }
       config.headers.Authorization = 'Bearer ' + store.getters.token
     }
@@ -52,9 +52,9 @@ service.interceptors.response.use(
   function(error) {
     // 校验token有效期
     if (error.response && error.response.data && error.response.data.code === 10002) {
-      store.dispatch('user/logout')
-      router.push('/login')
-      return Promise.reject(new Error('token超时了'))
+      // store.dispatch('user/logout')
+      // router.push('/login')
+      // return Promise.reject(new Error('token超时了'))
     } else {
       Message.error(error.message)
       return Promise.reject(error)

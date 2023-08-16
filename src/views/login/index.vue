@@ -24,7 +24,7 @@
             <span class="svg-container">
               <svg-icon class="me" icon-class="me" />
             </span>
-            <el-input v-model="loginForm.mobile" placeholder="请输入手机号" @keyup.enter.prevent="handleLogin" />
+            <el-input v-model="loginForm.mobile" name="mobile" placeholder="请输入手机号" @keyup.enter.prevent="handleLogin" />
           </el-form-item>
           <el-form-item prop="password">
             <span class="svg-container">
@@ -33,6 +33,7 @@
             <el-input
               v-model="loginForm.password"
               type="password"
+              name="password"
               placeholder="请输入密码"
               @keyup.enter.prevent="handleLogin"
             />
@@ -67,7 +68,7 @@ export default {
       loading: false,
       loginForm: {
         mobile: '13800000002',
-        password: 'hm#qd@23!'
+        password: '888itcast.CN764%...'
       },
       loginRules: {
         mobile: [
@@ -78,8 +79,8 @@ export default {
           { required: true, message: '请输入密码', trigger: 'change' },
           {
             min: 6,
-            max: 16,
-            message: '长度在 6 到 16 个字符',
+            max: 25,
+            message: '长度在 6 到 25 个字符',
             trigger: 'change'
           }
         ]

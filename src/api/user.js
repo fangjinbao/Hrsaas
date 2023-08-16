@@ -21,7 +21,7 @@ export function getUserInfo() {
   })
 }
 
-// 根据id获取用户基本信息（头像等)
+// 根据id获取用户基本信息（头像/角色等)
 export function getUserDetailById(id) {
   return request({
     url: `/sys/user/${id}`,
